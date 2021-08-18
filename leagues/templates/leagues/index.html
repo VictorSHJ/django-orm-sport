@@ -168,10 +168,146 @@
 			{% endfor %}
 		</ol>
 
-		<h2>Ligas</h2>
+
+		<h2>II. Consulta 1. Todos los equipos en la Atlantic Soccer Conference"</h2>
+		<ol>
+			{% for team in consulta21 %}
+				<li>{{team.location}} {{team.team_name}} (Liga : {{team.league.name}})</li>
+			{% empty %}
+				<p>No se encontraron equipos</p>
+			{% endfor %}
+		</ol>				
+
+		<h2>II. Consulta 2. Todos los jugadores (actuales) en los Boston Penguins</h2>
+		<ol>
+			{% for player in consulta22 %}
+				<li>{{player.first_name}} {{player.last_name}}</li>
+			{% empty %}
+				<p>No se encontraron jugadores</p>
+			{% endfor %}
+		</ol>		
+
+		<h2>II. Consulta 3. Todos los jugadores (actuales) en la International Collegiate Baseball Conference</h2>
+		<ol>
+			{% for player in consulta23 %}
+				<li>{{player.first_name}} {{player.last_name}}</li>
+			{% empty %}
+				<p>No se encontraron jugadores</p>
+			{% endfor %}
+		</ol>
+
+		<h2>II. Consulta 4. Todos los jugadores (actuales) en la Conferencia Americana de Fútbol Amateur con el apellido "López"</h2>
+		<ol>
+			{% for player in consulta24 %}
+				<li>{{player.first_name}} {{player.last_name}}</li>
+			{% empty %}
+				<p>No se encontraron jugadores</p>
+			{% endfor %}
+		</ol>
+
+		<h2>II. Consulta 5. Todos los jugadores de fútbol</h2>
+		<ol>
+			{% for player in consulta25 %}
+				<li>{{player.first_name}} {{player.last_name}}</li>
+			{% empty %}
+				<p>No se encontraron jugadores</p>
+			{% endfor %}
+		</ol>
+
+		<h2>II. Consulta 6. Todos los equipos con un jugador (actual) llamado "Sophia"</h2>
+		<ol>
+			{% for team in consulta26 %}
+				<li>{{team.location}} {{team.team_name}}</li>
+			{% empty %}
+				<p>No se encontraron equipos</p>
+			{% endfor %}
+		</ol>		
+
+		<h2>II. Consulta 7. Todas las ligas con un jugador (actual) llamado "Sophia"</h2>
+		<ol>
+			{% for league in consulta27 %}
+				<li>{{league.name}}</li>
+			{% empty %}
+				<p>No se encontraron Ligas</p>
+			{% endfor %}
+		</ol>
+
+		<h2>II. Consulta 8. Todos los jugadores con el apellido "Flores" que NO (actualmente) juegan para los Washington Roughriders</h2>
+		<ol>
+			{% for player in consulta28 %}
+				<li>{{player.first_name}} {{player.last_name}}</li>
+			{% empty %}
+				<p>No se encontraron jugadores</p>
+			{% endfor %}
+		</ol>		
+
+		<h2>II. Consulta 9. Todos los equipos, pasados y presentes, con los que Samuel Evans ha jugado</h2>
+		<ol>
+			{% for team in consulta29 %}
+				<li>{{team.location}} {{team.team_name}}</li>
+			{% empty %}
+				<p>No se encontraron equipos</p>
+			{% endfor %}
+		</ol>		
+
+		<h2>II. Consulta 10. Todos los jugadores, pasados y presentes, con los gatos tigre de Manitoba</h2>
+		<ol>
+			{% for player in consulta30 %}
+				<li>{{player.first_name}} {{player.last_name}}</li>
+			{% empty %}
+				<p>No se encontraron jugadores</p>
+			{% endfor %}
+		</ol>
+
+		<h2>II. Consulta 11. Todos los jugadores que anteriormente estaban (pero que no lo están) con los Wichita Vikings</h2>
+		<ol>
+			{% for player in consulta31 %}
+				<li>{{player.first_name}} {{player.last_name}}</li>
+			{% empty %}
+				<p>No se encontraron jugadores</p>
+			{% endfor %}
+		</ol>
+
+		<h2>II. Consulta 12. Cada equipo para el que Jacob Gray jugó antes de unirse a los Oregon Colts</h2>
+		<ol>
+			{% for team in consulta32 %}
+				<li>{{team.location}} {{team.team_name}}</li>
+			{% empty %}
+				<p>No se encontraron equipos</p>
+			{% endfor %}
+		</ol>
+
+		<h2>II. Consulta 13. Todos los jugadores llamados "Joshua" que alguna vez han jugado en la Federación Atlántica de Jugadores de Béisbol Amateur</h2>
+		<ol>
+			{% for player in consulta33 %}
+				<li>{{player.first_name}} {{player.last_name}}</li>
+			{% empty %}
+				<p>No se encontraron jugadores</p>
+			{% endfor %}
+		</ol>
+
+		<h2>II. Consulta 14. Todos los equipos que han tenido 12 o más jugadores, pasados y presentes. (SUGERENCIA: busque la función de anotación de Django).</h2>
+		<ol>
+			{% for team in consulta34 %}
+				<li>{{team.location}} {{team.team_name}} ({{team.nro_jugadores}})</li>
+			{% empty %}
+				<p>No se encontraron equipos</p>
+			{% endfor %}
+		</ol>
+
+		<h2>II. Consulta 15. Todos los jugadores y el número de equipos para los que jugó, ordenados por la cantidad de equipos para los que han jugado</h2>
+		<ol>
+			{% for player in consulta35 %}
+				<li>{{player.first_name}} {{player.last_name}} ({{player.nro_equipos}})</li>
+			{% empty %}
+				<p>No se encontraron jugadores</p>
+			{% endfor %}
+		</ol>																				
+
+		<h2>***** Ligas *****</h2>
 		<ol>
 			{% for league in leagues %}
-				<li>{{league.name}}. <span style="color:blue;font-weight:bold">{{league.sport}}</span></li>
+				<li>{{league.name}}. <span style="color:blue;font-weight:bold">(Deporte : {{league.sport}})</span></li>
 			{% empty %}
 				<p>No se encontraron Ligas.  Try <code>python manage.py loaddata data.json</code>, or, if that doesn't work, going <a href="{% url 'make_data' %}">here</a> (but be prepared to wait).</p>
 			{% endfor %}
@@ -179,7 +315,8 @@
 		<h2>Equipos</h2>
 		<ol>
 			{% for team in teams %}
-				<li>{{team.location}} {{team.team_name}}</li>
+				<li>{{team.location}} {{team.team_name}} <span style="color:blue;font-weight:bold">(Liga : {{team.league.name}})</span></li>
+				
 			{% empty %}
 				<p>No teams found.  Try <code>python manage.py loaddata data.json</code>, or, if that doesn't work, going <a href="{% url 'make_data' %}">here</a> (but be prepared to wait).</p>
 			{% endfor %}
